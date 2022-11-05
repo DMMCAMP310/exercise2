@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
+  has_many :rooms, through: :user_rooms
   has_one_attached :profile_image
 
   validates :name, presence:true, length: { minimum: 2, maximum: 20 }, uniqueness: true
