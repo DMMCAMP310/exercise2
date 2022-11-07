@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
+  
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
   scope :today, -> { where(created_at: Time.current.all_day) }
@@ -16,6 +17,7 @@ class Book < ApplicationRecord
   scope :created_4days, -> { where(created_at: 4.days.ago.all_day) } 
   scope :created_5days, -> { where(created_at: 5.days.ago.all_day) } 
   scope :created_6days, -> { where(created_at: 6.days.ago.all_day) } 
+  is_impressionable counter_cache: true
   
   def favorited_by?(user)
     favorites.exists?(user_id:user.id)

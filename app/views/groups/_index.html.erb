@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>グループ名</th>
+      <th>紹介文</th>
+      <th>メンバー数</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% gruops.each do |group| %>
+    <tr>
+      <td><%= image_tag.user.get_profile_image, size: '50x50' %></td>
+      <td><%= group.name %></td>
+      <td><%= group.introduction %></td>
+      <td></td>
+      <td>
+        <% if current_user.id = group.owner_id %>
+        <%= link_to 'edit', edit_grouppath %>
+      </td>
+    </tr>
+  </tbody>
+</table>
