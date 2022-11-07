@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
   resources :chats, only: [:show,:create]
-  resources :groups, only: [:index, :show, :edit, :new, :create]
+  resources :groups, only: [:index, :show, :edit, :new, :create, :update]
   get 'search' => 'searches#search'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
