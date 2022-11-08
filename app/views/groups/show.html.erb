@@ -16,11 +16,18 @@
               <th>紹介文</th>
               <th>メンバー</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td>
+                <% if @group.image.attached? %>
+                  <%= image_tag @group.image, size: "50x50" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "50x50" %>
+                <% end %>
+              </td>
               <td><%= @group.name %></td>
               <td><%= @group.introduction %></td>
               <td>
@@ -37,6 +44,7 @@
                   <%= link_to 'Join this group', group_join_path(@group), class: 'btn btn-sm btn-success' %>
                 <% end %>
               </td>
+              <td></td>
             </tr>
           </tbody>
         </table>

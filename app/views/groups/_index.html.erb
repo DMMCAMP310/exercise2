@@ -11,7 +11,13 @@
   <tbody>
     <% groups.each do |group| %>
     <tr>
-      <td></td>
+      <td>
+        <% if group.image.attached? %>
+          <%= image_tag group.image, size: "50x50" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "50x50" %>
+        <% end %>
+      </td>
       <td>
         <%= link_to group.name, group_path(group) %>
       </td>
