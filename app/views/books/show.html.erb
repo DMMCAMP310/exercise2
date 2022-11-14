@@ -29,6 +29,16 @@
             <%= render 'book_comments/counter', book: @book %>
           </td>
           <td>
+            <div id="post_raty"></div>
+              <script>
+                var elem = document.querySelector('#post_raty');
+                var opt = {  
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  scoreName: 'book[rate]',
+                };
+              raty(elem,opt);
+              </script>
           </td>
         </tr>
       </table>

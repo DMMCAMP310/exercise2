@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
+  
   scope :today, -> { where(created_at: Time.current.all_day) }
   scope :this_week, -> { where(created_at: Time.current.all_week) }
   scope :yesterday, -> { where(created_at: Time.zone.yesterday.all_day) }
