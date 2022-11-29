@@ -29,19 +29,16 @@
             <%= render 'book_comments/counter', book: @book %>
           </td>
           <td>
-            <div id="post_raty"></div>
-              <script>
-                var elem = document.querySelector('#post_raty');
-                var opt = {  
-                  starOn: "<%= asset_path('star-on.png') %>",
-                  starOff: "<%= asset_path('star-off.png') %>",
-                  scoreName: 'book[rate]',
-                };
-              raty(elem,opt);
-              </script>
+            <p class="view_count">閲覧数：<%= @book_detail.view_counts.count %></p>
+          </td>
+          <td>
+            <div id="get_raty", data-score="<%#= post_raty %>"></div>
           </td>
         </tr>
       </table>
+      <script>
+        
+      </script>
       <div class='book-comments-commentsindex'>
         <%= render 'book_comments/commentsindex', book: @book %>
       </div>
